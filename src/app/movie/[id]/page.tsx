@@ -4,7 +4,9 @@ interface MovieDetailProps {
   };
 }
 
-const MovieDetail = async ({ params: { id } }: MovieDetailProps) => {
+const MovieDetail = async ({ params }: MovieDetailProps) => {
+  const { id } = await params;
+
   return <h1>Movie Detail: {id}</h1>;
 };
 

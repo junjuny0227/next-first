@@ -30,7 +30,7 @@ const Main = async () => {
 
   return (
     <div>
-      <h1>Next Movies</h1>
+      <h2>Movies</h2>
       {movies.map((movie) => (
         <li key={movie.id}>
           <Link href={`/movie/${movie.id}`}>{movie.title}</Link>

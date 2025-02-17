@@ -1,5 +1,5 @@
-import { BASE_URL } from "@/app/page";
-import axios from "axios";
+import { MovieInfo, MovieVideos } from "@/components";
+import { Suspense } from "react";
 
 interface MovieDetailProps {
   params: {
@@ -7,21 +7,19 @@ interface MovieDetailProps {
   };
 }
 
-const getMovie = async (id: string) => {
-  const { data } = await axios.get(`${BASE_URL}/movies/${id}`);
-  return data;
-};
-
-const getVideos = async (id: string) => {
-  const { data } = await axios.get(`${BASE_URL}/movies/${id}/videos`);
-  return data;
-};
-
 const MovieDetail = async ({ params }: MovieDetailProps) => {
   const { id } = await params;
-  const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
 
-  return <h1>{movie.title}</h1>;
+  return (
+    <div>
+      <Suspense fallback={<h2>Loading movie info...</h2>}>
+        <MovieInfo id={id} />
+      </Suspense>
+      <Suspense fallback={<h2>Loading movie video...</h2>}>
+        <MovieVideos id={id} />
+      </Suspense>
+    </div>
+  );
 };
 
 export default MovieDetail;

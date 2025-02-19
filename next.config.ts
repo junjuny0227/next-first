@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       dynamic: 60 * 10,
     },
   },
+  images: {
+    domains: ["image.tmdb.org"],
+  },
 };
 
 export default nextConfig;

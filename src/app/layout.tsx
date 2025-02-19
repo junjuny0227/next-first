@@ -1,3 +1,4 @@
+import GlobalStyle from "@/styles/GlobalStyle";
 import { Header } from "@/components";
 import type { Metadata } from "next";
 
@@ -14,6 +15,7 @@ const RootLayout = ({
   return (
     <html lang="ko">
       <body>
+        <GlobalStyle />
         <Header />
         {children}
       </body>

@@ -1,8 +1,6 @@
 import Link from "next/link";
 import axios from "axios";
 
-export const BASE_URL = "https://nomad-movies.nomadcoders.workers.dev";
-
 interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -21,7 +19,9 @@ interface Movie {
 }
 
 const getMovies = async () => {
-  const { data } = await axios.get<Movie[]>(`${BASE_URL}/movies`);
+  const { data } = await axios.get<Movie[]>(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/movies`
+  );
   return data;
 };
 

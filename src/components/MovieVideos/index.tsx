@@ -1,4 +1,3 @@
-import { BASE_URL } from "@/app/page";
 import axios from "axios";
 
 interface MovieVideosProps {
@@ -6,7 +5,9 @@ interface MovieVideosProps {
 }
 
 const getVideos = async (id: string) => {
-  const { data } = await axios.get(`${BASE_URL}/movies/${id}/videos`);
+  const { data } = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/movies/${id}/videos`
+  );
   return data;
 };
 

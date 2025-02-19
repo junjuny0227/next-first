@@ -1,5 +1,7 @@
+import { NotFoundPage } from "@/pageContainer";
+
 const NotFound = () => {
-  return <h2>not found</h2>;
+  return <NotFoundPage />;
 };
 
 export default NotFound;

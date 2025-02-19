@@ -1,7 +1,9 @@
 "use client";
 
+import { ErrorPage } from "@/pageContainer";
+
 const Error = () => {
-  <h2>Something broke...</h2>;
+  return <ErrorPage />;
 };
 
 export default Error;

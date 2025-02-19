@@ -1,5 +1,7 @@
+import { LoadingPage } from "@/pageContainer";
+
 const Loading = () => {
-  return <h2>Loading...</h2>;
+  return <LoadingPage />;
 };
 
 export default Loading;

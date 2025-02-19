@@ -16,6 +16,7 @@ const GlobalStyle = () => {
             sans-serif;
           font-size: 18px;
           box-sizing: border-box;
+          padding-top: 100px;
         }
 
         body {

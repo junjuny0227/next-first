@@ -1,4 +1,10 @@
-import Link from "next/link";
+"use client";
+
+import * as S from "./style";
+
+import { useEffect, useState } from "react";
+
+import Movie from "@/components/Movie";
 import axios from "axios";
 
 interface Movie {
@@ -18,25 +24,31 @@ interface Movie {
   vote_count: number;
 }
 
-const getMovies = async () => {
-  const { data } = await axios.get<Movie[]>(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/movies`
-  );
-  return data;
-};
+const MainPage = () => {
+  const [movies, setMovies] = useState<Movie[]>([]);
 
-const MainPage = async () => {
-  const movies = await getMovies();
+  useEffect(() => {
+    const getMovies = async () => {
+      const { data } = await axios.get<Movie[]>(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/movies`
+      );
+      setMovies(data);
+    };
+
+    getMovies();
+  }, []);
 
   return (
-    <div>
-      <h2>Movies</h2>
+    <S.Container>
       {movies.map((movie) => (
-        <li key={movie.id}>
-          <Link href={`/movie/${movie.id}`}>{movie.title}</Link>
-        </li>
+        <Movie
+          key={movie.id}
+          id={movie.id}
+          poster_path={movie.poster_path}
+          title={movie.title}
+        />
       ))}
-    </div>
+    </S.Container>
   );
 };
 

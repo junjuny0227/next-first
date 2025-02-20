@@ -18,8 +18,6 @@ const Movie = ({ id, poster_path, title }: MovieProps) => {
       <S.StyledImage
         src={poster_path}
         alt={title}
-        width={400}
-        height={500}
         onClick={() => router.push(`/movie/${id}`)}
       />
       <S.StyledLink href={`/movie/${id}`}>{title}</S.StyledLink>

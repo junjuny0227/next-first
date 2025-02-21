@@ -9,7 +9,7 @@ export const MovieContainer = styled.div`
   place-items: center;
 `;
 
-export const StyledImage = styled.img`
+export const StyledImg = styled.img`
   max-width: 100%;
   min-height: 100%;
   border-radius: 10px;

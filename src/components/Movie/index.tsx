@@ -15,7 +15,7 @@ const Movie = ({ id, poster_path, title }: MovieProps) => {
 
   return (
     <S.MovieContainer>
-      <S.StyledImage
+      <S.StyledImg
         src={poster_path}
         alt={title}
         onClick={() => router.push(`/movie/${id}`)}

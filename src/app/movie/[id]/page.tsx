@@ -1,9 +1,7 @@
 import { MovieDetailPage } from "@/pageContainer";
 
 interface MovieDetailProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 const MovieDetail = async ({ params }: MovieDetailProps) => {
